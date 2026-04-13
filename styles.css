@@ -1,0 +1,221 @@
+ <style>
+
+  * {
+  box-sizing: border-box;
+}
+    
+  :root { 
+    --ai-blue:#0073E5; 
+    --ai-green:#22C55E; 
+    --ai-light:#E1F1FD; 
+    --ai-ink:#15182F; 
+  }
+
+  body {
+    margin:0; 
+    font-family:"Open Sans",sans-serif; 
+    color:var(--ai-ink);
+    background:#ffffff; 
+    min-height:100vh; 
+    display:flex; 
+    align-items:flex-start; 
+    justify-content:center; 
+  }
+
+  .card { 
+    background:#E1F1FD;
+    border-radius:0; 
+    box-shadow:0 12px 24px rgba(0,115,229,.2);
+    padding:40px 36px 30px; 
+    text-align:center; 
+    width:100%; 
+    max-width:420px;
+    position:relative;
+    overflow:hidden;
+    min-height:100vh;
+    max-height:640px;
+
+  }
+
+  .card-header{
+    position:relative;
+    height:clamp(260px, 32vh, 340px);
+    margin:-40px -36px 0 -36px;
+    background:url("soil-card-background.png") center -70px / cover no-repeat;
+  }
+    
+  .card-logo{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:340px;
+    z-index:4;
+  }
+
+  .employee-photo{
+    width: clamp(180px, 20vw, 200px);
+    height: clamp(180px, 20vw, 200px);
+    object-fit:cover;
+    object-position:center 20%;
+    border-radius:20px;
+    margin:clamp(-150px, -18vh, -130px) auto 10px;
+    display:block;
+    position:relative;
+    z-index:5;
+    border:6px solid #fff;
+    box-shadow:0 16px 40px rgba(0,0,0,0.25);
+  }
+
+.employee-name{
+  font-size:30px;
+  font-weight:600;
+  margin-bottom:10px;
+}  
+
+.employee-title{
+  font-size:15px;
+  opacity:.8;
+  margin-bottom:4px;
+}
+
+.employee-email{
+  font-size:14px;
+  opacity:.7;
+  margin-bottom:10px;
+}
+
+.employee-phone{
+  font-size:14px;
+  opacity:.75;
+  margin-bottom:4px;
+}
+    
+.employee-qr{
+  width:85px;
+  margin:20px auto 5px;
+  display:block;
+}
+
+.qr-note{
+  font-size:12px;
+  opacity:.6;
+}
+    
+  /* Step containers */
+  #shareStep, 
+  #connectForm {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+  }
+
+  #connectForm.hidden {
+    display: none;
+  }
+  #connectForm .employee-name{
+    font-size:inherit;
+    font-weight:600;
+}
+  #connectForm input{
+    background:#F8FBFF;
+    border:1px solid rgba(0,115,229,.15);
+}
+
+/* FORM CARD (new) */
+.form-card{
+  position:relative;
+  z-index:6;
+  
+  background:#ffffff;
+  border-radius:18px;
+  padding:24px;
+  
+  width:100%;
+  max-width:340px;
+  
+  margin:-130px auto 0;
+  
+  box-shadow:0 10px 28px rgba(0,0,0,0.08);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* center inputs inside the form card */
+.form-card input,
+.form-card button{
+  width:100%;
+  max-width:280px;
+}
+
+  h1, h2 {
+    color: var(--ai-blue);
+    margin: 0 0 10px;
+  }
+
+  p { margin:0 0 20px; }
+
+  input, button {
+    width:100%; 
+    padding:12px; 
+    margin:8px 0; 
+    border-radius:10px; 
+    font-family:"Open Sans";
+  }
+
+/* Highlights active field for better UX */
+  input:focus {
+    outline: none; /* removes default browser outline */
+    border: 1px solid #0073E5; /* AI blue border */
+    box-shadow: 0 0 0 2px rgba(0,115,229,0.15); /* soft glow */
+  }
+    
+  button {
+    background:var(--ai-blue); 
+    color:#fff; 
+    border:none; 
+    font-weight:600; 
+    cursor:pointer; 
+    transition:.2s;
+    margin-top:16px;
+    padding:14px;
+    font-size:15px;
+  }
+
+  button:hover {
+    background:var(--ai-green);
+  }
+
+  /* Smooth fade animation for step switch */
+  .fade {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .fade.show {
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+
+  body{
+    align-items:center;
+    padding:40px;
+  }
+
+  .card{
+    min-height:640px;
+    max-height:720px;
+    border-radius:24px;
+    overflow:hidden;
+  }
+
+  .employee-photo{
+    margin:-180px auto 12px;
+  }
+}
+</style>
